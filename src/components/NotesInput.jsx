@@ -5,7 +5,7 @@ import {NotesContext} from "../context/NotesContext";
 function NotesInput(){
   
     const{addNote} =useContext(NotesContext);
-    const{inputRef}=useRef();
+    const inputRef =useRef(null);
 
 
     useEffect(()=>{
@@ -15,9 +15,10 @@ function NotesInput(){
     const handleAdd=()=>{
         const value=inputRef.current.value;
 
-        if(value === "") return;
-        addNote(value);
-        inputRef.current.value="";
+       if(!value) return;
+       addNote(value);
+       inputRef.current.value="";
+
     };
     return(
         <div>

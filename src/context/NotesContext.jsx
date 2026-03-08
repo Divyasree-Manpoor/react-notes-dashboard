@@ -4,11 +4,11 @@ export const NotesContext=createContext();
 
 export const NotesProvider=({children})=>{
 const[notes,setNotes]=useState([]);
-const[selectNotes, setSelectedNotes]=useState(null);
+const[selectedNote, setSelectedNote]=useState(null);
 
 
 useEffect(()=>{
-    const savedNotes=JSON.parse(localStorage.getItem("notes"));
+    const storedNotes=JSON.parse(localStorage.getItem("notes"));
 
     if(storedNotes){
         setNotes(storedNotes);
@@ -20,12 +20,11 @@ useEffect(()=>{
     localStorage.setItem("notes",JSON.stringify(notes));
 },[notes]);
 
-
 const addNote=(text)=>{
-    const newNote={
+const newNote={
         id:Date.now(),
         text
-    };
+};
     setNotes([...notes, newNote])
 };
 
@@ -34,8 +33,9 @@ return(
     value={{
         notes,
         addNote,
-        selectNotes,
-        setSelectedNotes
-    }}>{children}</NotesContext.Provider>
-)
-}
+        selectedNote,
+        setSelectedNote
+    }}>{children}
+    </NotesContext.Provider>
+);
+};
