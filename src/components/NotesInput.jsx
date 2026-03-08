@@ -24,7 +24,12 @@ function NotesInput(){
         <div>
             <input
             ref={inputRef}
-            placeholder="Enter note">
+            placeholder="Enter note"
+            style={{
+                width:"280px",
+                height:"35px",
+                padding:"6px"
+            }}>
             </input>
             <button onClick={handleAdd}>AddNotes</button>
         </div>

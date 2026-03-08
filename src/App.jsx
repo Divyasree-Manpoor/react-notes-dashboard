@@ -9,9 +9,19 @@ function App(){
   return notes.length;
  },[notes]);
  return(
-  <div style={{padding:"20px"}}>
+  <div style={{
+    paddingTop:"40px",
+    paddingLeft:"40px"
+  }}>
+    <div 
+    style={{
+   display:"flex",
+   alignItems:"center",
+   gap:"40px"
+    }}>
     <h1>Notes Dashboard</h1>
     <NotesInput/>
+    </div>
     <h3>Total Notes:{totalNotes}</h3>
     <NotesList/>
   </div>
