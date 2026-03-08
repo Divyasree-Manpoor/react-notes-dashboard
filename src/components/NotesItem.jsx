@@ -2,18 +2,18 @@ import {useContext} from "react";
 
 import { NotesContext } from "../context/NotesContext";
 
-function NotesItem({notes}){
+function NotesItem({note}){
     const{selectedNote,setSelectedNote}=useContext(NotesContext);
     return(
-        <div onClick={()=>setSelectedNote(notes.id)}
+        <div onClick={()=>setSelectedNote(note.id)}
         style={{
             border:"1px solid black",
             padding:"10px",
             marginTop:"10px",
-            backgroundColor:selectedNote === notes.id ? "yellow" : "white"
+            backgroundColor:selectedNote === note.id ? "yellow" : "white"
         }}
         >
-            {notes.text}
+            {note.text}
         </div>
     )
 }
